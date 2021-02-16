@@ -1,0 +1,33 @@
+
+
+public class messageServices
+{
+    public static void main(String[] args) throws IOException 
+    {
+        Socket s = new Socket();
+	String host = ip;
+	PrintWriter s_out = null;
+		
+        try 
+        {
+		s.connect(new InetSocketAddress(host , 80));
+		System.out.println("ok");
+			
+		//writer for socket
+            s_out = new PrintWriter( s.getOutputStream(), true);
+        }
+        
+      
+        catch (UnknownHostException e) 
+        {
+            System.err.println("error host: " + host);
+            System.exit(1);
+        }
+        
+        //Send message to server
+	String message = message;
+	s_out.println( message );
+			
+	System.out.println("Send message");
+    }
+}
